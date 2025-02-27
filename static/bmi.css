@@ -1,0 +1,89 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e1b382;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #2d545e;
+    text-align: center;
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+
+h1 {
+    color: #12343b;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #c89666;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+input:focus {
+    border-color: #12343b;
+    outline: none;
+    box-shadow: 0px 0px 8px rgba(18, 52, 59, 0.5);
+}
+
+#submit_bmi, #statistics_btn {
+    border: none;
+    background-color: #2d545e;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    width: 100%;
+}
+
+#submit_bmi:hover {
+    background-color: #12343b;
+    transform: scale(1.05);
+}
+
+#statistics_btn:hover{
+    background-color: #12343b;
+    transform: scale(1.05);
+}
+
+#submit_bmi:active {
+    transform: scale(0.95);
+}
+
+#statistics_btn:active{
+    transform: scale(0.95);
+
+}
+
+img {
+    display: block;      /* Para que margin auto funcione */
+    margin: 0 auto 20px;  /* Centrado horizontal y 20px de margen inferior para separar del h1 */
+    width: 20%;      /* La imagen ocupará como máximo el 50% del ancho del contenedor */
+    height: auto;        /* Mantiene la proporción de la imagen */
+    border-radius: 3%;
+    box-shadow: 0 4px 8px #12343b;
+}
+
