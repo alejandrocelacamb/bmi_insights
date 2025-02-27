@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Statistics</title>
+    <link rel="stylesheet" href="/static/statistics.css">
+</head>
+
+<body>
+    <img src="/static/imgs/bmi_logo.jpg" alt="logo">
+    <h1>Here you can find the statistics of the users of this app:</h1>
+    <h2 id="piechart">{{ plot_html | safe }}</h2>
+    <p id="usersData">{{ usersdata }}</p>
+
+    <div>
+        <a href="/">Go home</a>
+    </div>
+</body>
+
+</html>
