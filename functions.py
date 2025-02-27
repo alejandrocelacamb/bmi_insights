@@ -1,3 +1,4 @@
+
 import mysql.connector
 import plotly.express as px
 import numpy as np
@@ -95,6 +96,5 @@ class User:
             print("Data inserted successfully")
         except mysql.connector.Error as err:
             print(f"Error inserting data: {err}") 
-
 
 
