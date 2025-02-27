@@ -1,4 +1,4 @@
-# BMI Application
+# BMI Application (work in progress)
 
 ## Overview
 This web application allows users to input their height, weight, and name. The app stores this information in a MySQL database and performs several operations to calculate the Body Mass Index (BMI) for each user. Additionally, the app provides visualizations of the users' BMI statistics, including a pie chart representing the distribution of health statuses (underweight, normal, overweight, obese) based on their BMI values.
