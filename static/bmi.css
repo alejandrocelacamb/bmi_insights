@@ -1,90 +1,88 @@
 
+:root {
+    --primary-color: #2d545e;
+    --secondary-color: #12343b;
+    --background-color: #e1b382;
+    --border-color: #c89666;
+    --white: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #e1b382;
+    background-color: var(--background-color);
+    min-height: 100vh;
+    margin: 0;
+    color: var(--primary-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    color: #2d545e;
-    text-align: center;
 }
 
 .container {
-    background: white;
+    background: var(--white);
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    box-shadow: 0 4px 10px var(--shadow-color);
     width: 100%;
     max-width: 400px;
 }
 
-
 h1 {
-    color: #12343b;
+    color: var(--secondary-color);
     margin-bottom: 1rem;
-    text-align: center;
-    font-size: 50px;
+    font-size: 3.125rem;
     font-weight: bold;
 }
 
 input {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 2px solid #c89666;
+    padding: 0.625rem;
+    margin: 0.625rem 0;
+    border: 2px solid var(--border-color);
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 1rem;
     transition: all 0.3s ease-in-out;
+    box-sizing: border-box;
 }
-
 
 input:focus {
-    border-color: #12343b;
+    border-color: var(--secondary-color);
     outline: none;
-    box-shadow: 0px 0px 8px rgba(18, 52, 59, 0.5);
+    box-shadow: 0 0 8px rgba(18, 52, 59, 0.5);
 }
 
-#submit_bmi, #statistics_btn {
-    border: none;
-    background-color: #2d545e;
-    color: white;
-    padding: 12px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: background 0.3s ease-in-out, transform 0.2s;
+#submit_bmi,
+#statistics_btn {
     width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
 }
 
-#submit_bmi:hover {
-    background-color: #12343b;
+#submit_bmi:hover,
+#statistics_btn:hover {
+    background-color: var(--secondary-color);
     transform: scale(1.05);
 }
 
-#statistics_btn:hover{
-    background-color: #12343b;
-    transform: scale(1.05);
-}
-
-#submit_bmi:active {
+#submit_bmi:active,
+#statistics_btn:active {
     transform: scale(0.95);
-}
-
-#statistics_btn:active{
-    transform: scale(0.95);
-
 }
 
 img {
-    display: block;      /* Para que margin auto funcione */
-    margin: 0 auto 20px;  /* Centrado horizontal y 20px de margen inferior para separar del h1 */
-    width: 20%;      /* La imagen ocupará como máximo el 50% del ancho del contenedor */
-    height: auto;        /* Mantiene la proporción de la imagen */
+    display: block;
+    margin: 0 auto 1.25rem;
+    width: 20%;
+    height: auto;
     border-radius: 3%;
-    box-shadow: 0 4px 8px #12343b;
+    box-shadow: 0 4px 8px var(--secondary-color);
 }
 
