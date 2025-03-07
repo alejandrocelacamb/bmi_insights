@@ -21,7 +21,7 @@ db_config = {
 }
 
 # BMI range constants
-BMI_RANGES = { #muy interesante, explicar la sintaxis para luego utilizarlo en el bmi.py 
+BMI_RANGES = { 
     "underweight": (0, 18.5),
     "normal": (18.5, 24.9),
     "overweight": (24.9, 29.9),
@@ -58,14 +58,14 @@ def get_numbers() -> List[float]:
             cursor.execute("SELECT bmi FROM users")
             results = cursor.fetchall()
             
-            return [round(float(row[0]), 2) for row in results] if results else [] #list comprehension? cuando si y cuando no? 
+            return [round(float(row[0]), 2) for row in results] if results else [] 
             
     except mysql.connector.Error as err:
         print(f"Error in get_numbers: {err}")
         return []
 
 def piechartpx() -> str:
-    """Generate pie chart of BMI distribution""" #difrenecia entre asterisco y entrecmoillado para comentarios?
+    """Generate pie chart of BMI distribution""" 
     users_bmi = get_numbers()
     total = len(users_bmi)
     
@@ -73,7 +73,7 @@ def piechartpx() -> str:
         return "No data available for the chart."
         
     # Calculate counts for each BMI category
-    counts = { #no entiendo nada de la sintaxis de este diccionario. entiendo que estas categorizando los rangos de bmi pero no se como lo haces
+    counts = { 
         category: sum(1 for bmi in users_bmi 
                      if BMI_RANGES["underweight"][0] <= bmi < BMI_RANGES[category][1])
                 
@@ -106,7 +106,7 @@ class User:
         self.name = name
         self.bmi = bmi
     
-    def storing_data(self) -> bool: # no termino de entender la logica de todas las funciones que retornan un boolean 
+    def storing_data(self) -> bool: 
         """Store user data in database"""
         try:
             with get_db_connection() as database:
