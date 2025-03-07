@@ -15,7 +15,7 @@ BMI_RANGES = {
     (30, float('inf')): "You are obese"
 }
 
-def get_health_message(bmi):
+def get_health_message(bmi):#no entiendo la logica del loop y no entiendo cuando has definido message
     """Helper function to determine health message based on BMI"""
     for (lower, upper), message in BMI_RANGES.items():
         if lower <= bmi < upper:
@@ -34,7 +34,7 @@ def bmi_formula():
         user_name = flask.request.args.get("username", "")
 
         # Input validation
-        if not all([user_weight, user_height, user_name]):
+        if not all([user_weight, user_height, user_name]): 
             raise ValueError("Missing required fields")
 
         # Convert and validate numeric inputs
@@ -64,7 +64,7 @@ def bmi_formula():
         route = route.replace("$HEALTHRESULT$", health_message)
         return route
 
-    except (ValueError, TypeError) as e:
+    except (ValueError, TypeError) as e: #por que especificar tipo de error?
         route = functions.get_html("/result")
         route = route.replace("$BMIRESULT$", "Please, introduce correct values")
         route = route.replace("$HEALTHRESULT$", "")

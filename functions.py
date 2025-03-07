@@ -10,7 +10,7 @@ import os
 from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv()
+load_dotenv() 
 
 # Database configuration
 db_config = {
@@ -21,7 +21,7 @@ db_config = {
 }
 
 # BMI range constants
-BMI_RANGES = {
+BMI_RANGES = { #muy interesante, explicar la sintaxis para luego utilizarlo en el bmi.py 
     "underweight": (0, 18.5),
     "normal": (18.5, 24.9),
     "overweight": (24.9, 29.9),
@@ -36,21 +36,21 @@ COLOR_MAP = {
     "obese": "#21134D"
 }
 
-@contextmanager
+@contextmanager 
 def get_db_connection():
     """Context manager for database connections"""
     conn = mysql.connector.connect(**db_config)
     try:
-        yield conn
+        yield conn 
     finally:
         conn.close()
 
-def get_html(file_name: str) -> str:
+def get_html(file_name: str) -> str: 
     """Read and return HTML template content"""
-    with open(f"templates/{file_name}.html") as html:
+    with open(f"templates/{file_name}.html") as html: 
         return html.read()
 
-def get_numbers() -> List[float]:
+def get_numbers() -> List[float]: 
     """Retrieve BMI numbers from database"""
     try:
         with get_db_connection() as database:
@@ -58,14 +58,14 @@ def get_numbers() -> List[float]:
             cursor.execute("SELECT bmi FROM users")
             results = cursor.fetchall()
             
-            return [round(float(row[0]), 2) for row in results] if results else []
+            return [round(float(row[0]), 2) for row in results] if results else [] #list comprehension? cuando si y cuando no? 
             
     except mysql.connector.Error as err:
         print(f"Error in get_numbers: {err}")
         return []
 
 def piechartpx() -> str:
-    """Generate pie chart of BMI distribution"""
+    """Generate pie chart of BMI distribution""" #difrenecia entre asterisco y entrecmoillado para comentarios?
     users_bmi = get_numbers()
     total = len(users_bmi)
     
@@ -73,11 +73,15 @@ def piechartpx() -> str:
         return "No data available for the chart."
         
     # Calculate counts for each BMI category
-    counts = {
+    counts = { #no entiendo nada de la sintaxis de este diccionario. entiendo que estas categorizando los rangos de bmi pero no se como lo haces
         category: sum(1 for bmi in users_bmi 
-                     if BMI_RANGES[category][0] <= bmi < BMI_RANGES[category][1])
+                     if BMI_RANGES["underweight"][0] <= bmi < BMI_RANGES[category][1])
+                
         for category in BMI_RANGES
     }
+    
+    
+
     
     # Calculate percentages
     sizes = [count / total for count in counts.values()]
@@ -102,7 +106,7 @@ class User:
         self.name = name
         self.bmi = bmi
     
-    def storing_data(self) -> bool:
+    def storing_data(self) -> bool: # no termino de entender la logica de todas las funciones que retornan un boolean 
         """Store user data in database"""
         try:
             with get_db_connection() as database:
